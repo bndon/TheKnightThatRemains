@@ -40,8 +40,8 @@ Catatan Tambahan
 
 Daftar Kelas dan Fungsinya
 - Package main
--- MainClass
-	- Titik masuk (entry point) dari program.
+	- MainClass
+		-Titik masuk (entry point) dari program.
 	- Membuat objek Game dan menjalankan permainan.
 -- Game
 	- Pengendali utama aplikasi.

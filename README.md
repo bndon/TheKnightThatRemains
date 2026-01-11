@@ -1,174 +1,227 @@
-#The Knight That Remains
+# The Knight That Remains
 
-The Knight That Remains adalah sebuah game 2D action platformer. Pemain mengendalikan seorang ksatria yang menjelajahi dungeon terkutuk dengan berbagai fitur utama, seperti sistem pertarungan (menyerang, bertahan, dan menghindar), kecerdasan buatan musuh (skeleton dan pertarungan boss), dialog interaktif, cutscene sinematik, serta sistem penyimpanan dan pemuatan permainan (save/load).
+**The Knight That Remains** adalah sebuah game **2D action platformer**.  
+Pemain mengendalikan seorang ksatria yang menjelajahi dungeon terkutuk dengan berbagai fitur utama, antara lain:
+- Sistem pertarungan (menyerang, bertahan, dan menghindar)
+- Kecerdasan buatan musuh (Skeleton dan pertarungan Boss)
+- Dialog interaktif
+- Cutscene sinematik
+- Sistem penyimpanan dan pemuatan permainan (Save & Load)
 
------------------------------------------------------------------------------------------------------------------------------
+---
 
-Cara Menjalankan Aplikasi
+## Cara Menjalankan Aplikasi
 
-Persyaratan Sistem
-- Java Development Kit (JDK) versi 21 atau lebih baru
-- Sistem operasi yang mendukung Java (Windows, macOS, atau Linux)
+### Persyaratan Sistem
+- Java Development Kit (JDK) versi **21** atau lebih baru
+- Sistem operasi yang mendukung Java:
+  - Windows
+  - macOS
+  - Linux
 
-Langkah Menjalankan dari .jar
-1. Pastikan Java Development Kit (JDK) versi 21 telah terpasang pada sistem.
-2. Temukan file TheKnightThatRemains.jar.
-3. Buka Command Prompt, Terminal, atau antarmuka baris perintah lain pada direktori tempat file berada.
-4. Jalankan file .jar menggunakan Java Runtime Environment.
-5. Setelah dijalankan, jendela game akan terbuka dan permainan akan dimulai secara otomatis.
+---
 
-Catatan Tambahan
-- Jika aplikasi tidak dapat dijalankan, kemungkinan Java belum terpasang atau versi Java tidak sesuai.
-- Aplikasi tidak memerlukan koneksi internet maupun pustaka eksternal tambahan.
-- Game bersifat lintas platform dan dapat dijalankan pada berbagai sistem operasi yang mendukung Java.
+### Menjalankan dari File `.jar`
 
-Langkah Menjalankan dari Source Code
-1. Pastikan Java Development Kit (JDK) versi 21 telah terpasang pada sistem.
-2. Buka IDE Java yang digunakan.
-3. Impor atau buka folder proyek The Knight That Remains sebagai proyek Java.
+1. Pastikan **Java Development Kit (JDK) versi 21** telah terpasang.
+2. Temukan file `TheKnightThatRemains.jar`.
+3. Buka **Command Prompt**, **Terminal**, atau antarmuka baris perintah lainnya.
+4. Masuk ke direktori tempat file `.jar` berada.
+5. Jalankan file `.jar` menggunakan Java Runtime Environment.
+6. Setelah dijalankan, jendela game akan terbuka dan permainan dimulai secara otomatis.
+
+#### Catatan Tambahan
+- Jika aplikasi tidak dapat dijalankan, kemungkinan Java belum terpasang atau versinya tidak sesuai.
+- Aplikasi tidak memerlukan koneksi internet.
+- Tidak diperlukan pustaka eksternal tambahan.
+- Game bersifat lintas platform selama sistem mendukung Java.
+
+---
+
+### Menjalankan dari Source Code
+
+1. Pastikan **Java Development Kit (JDK) versi 21** telah terpasang.
+2. Buka IDE Java yang digunakan (IntelliJ IDEA, Eclipse, NetBeans, dll.).
+3. Impor atau buka folder proyek **The Knight That Remains** sebagai proyek Java.
 4. Pastikan struktur package dan file sumber berada pada direktori yang benar.
-5. Cari kelas MainClass pada package main.
-6. Jalankan metode main pada kelas MainClass.
-7. Setelah dijalankan, jendela game akan terbuka dan permainan dimulai secara otomatis.
+5. Cari kelas `MainClass` pada package `main`.
+6. Jalankan metode `main()` pada kelas tersebut.
+7. Game akan berjalan dan menampilkan jendela permainan secara otomatis.
 
-Catatan Tambahan
-- Pastikan seluruh resource (gambar, tile map, dan file TMX) berada pada direktori yang sesuai agar dapat dimuat dengan benar.
-- Tidak diperlukan pustaka eksternal tambahan di luar Java standar.
-- Jika terjadi error saat kompilasi, pastikan pengaturan bahasa Java di IDE menggunakan versi Java 21.
+#### Catatan Tambahan
+- Pastikan seluruh resource (gambar, tileset, dan file TMX) berada pada direktori yang sesuai.
+- Tidak diperlukan pustaka eksternal di luar Java standar.
+- Jika terjadi error kompilasi, pastikan versi Java di IDE adalah Java 21.
 
------------------------------------------------------------------------------------------------------------------------------
+---
 
-Daftar Kelas dan Fungsinya
-- Package main
-	- MainClass
-		-Titik masuk (entry point) dari program.
-	- Membuat objek Game dan menjalankan permainan.
--- Game
-	- Pengendali utama aplikasi.
-	- Menginisialisasi state game, manager, dan resource bersama.
-	- Mengatur game loop (update dan render).
--- GamePanel
-	- Turunan dari JPanel.
-	- Bertanggung jawab untuk menggambar grafik dan menerima input.
-	- Memanggil metode update dan render dari Game.
--- GameWindow
-	- Membungkus JFrame.
-	- Mengatur properti window (ukuran, judul, operasi penutupan).
-	- Menambahkan GamePanel ke dalam window.
--- Gamestate (enum)
-	- Mendefinisikan state permainan (MENU, PLAYING, PAUSED, dll.).
-	- Digunakan untuk mengontrol alur permainan dan input.
--- Menu
-	- Menangani logika dan tampilan menu utama.
-	- Memproses input pengguna pada menu.
--- PauseOverlay
-	- Menampilkan UI saat game dijeda.
-	- Menangani interaksi ketika game dalam keadaan pause.
+## Daftar Kelas dan Fungsinya
 
-- Package inputs
--- KeyboardInputs
-	- Menangani event input dari keyboard.
-	- Menerjemahkan penekanan tombol menjadi aksi dalam game.
--- MouseInput
-	- Menangani klik dan pergerakan mouse.
-	- Digunakan terutama untuk interaksi UI (menu, tombol).
+### Package `main`
 
-- Package entities
--- Entity (kelas dasar)
-	- Merepresentasikan semua karakter yang dapat bergerak.
-	- Menyimpan posisi, hitbox, health, dan logika pergerakan.
-	- Menjadi kelas induk bagi Player dan Enemy.
--- Player
-	- Turunan dari Entity.
-	- Menangani pergerakan pemain, animasi, dan pertarungan.
-	- Mengelola state pemain (idle, berjalan, menyerang, dll.).
--- Enemy
-	- Turunan dari Entity.
-	- Kelas dasar untuk semua musuh.
-	- Menyediakan logika umum musuh (AI, damage, pergerakan).
--- Skeleton
-	- Turunan dari Enemy.
-	- Mengimplementasikan perilaku dan animasi khusus Skeleton.
--- KnightBoss
-	- Turunan dari Enemy.
-	- Musuh boss dengan pola serangan dan perilaku khusus.
--- EnemyManager
-	- Mengelola semua musuh dalam level.
-	- Melakukan update dan render musuh.
-	- Menangani spawn dan penghapusan musuh.
+- **MainClass**
+  - Titik masuk (entry point) aplikasi
+  - Membuat objek `Game` dan menjalankan permainan
 
-- Package levels
--- Level
-	- Merepresentasikan satu level permainan.
-	- Menyimpan data tile, musuh, dan objek.
--- LevelManager
-	- Memuat level dari file TMX.
-	- Mengelola level yang sedang aktif.
-	- Menyediakan data level untuk sistem lain (collision, render).
+- **Game**
+  - Pengendali utama aplikasi
+  - Menginisialisasi state game, manager, dan resource
+  - Mengatur game loop (update dan render)
 
-- Package objects
--- ObjectManager
-	- Mengelola objek interaktif (item, jebakan, dll.).
-	- Melakukan update dan render objek.
-	- Menangani interaksi antara pemain dan objek.
+- **GamePanel**
+  - Turunan dari `JPanel`
+  - Bertanggung jawab untuk rendering dan input
+  - Memanggil metode update dan render dari `Game`
 
-- Package ui
--- CreditsOverlay
-	- Menampilkan kredit aset dan pengembang.
--- DialogueOverlay
-Menampilkan dialog di layar.
-	- Digunakan untuk cerita atau interaksi NPC.
--- GameOverOverlay
-	- Menampilkan layar game over.
-	- Menangani input untuk restart atau keluar.
--- Menu
-	- Menangani tampilan dan interaksi menu UI.
--- PauseOverlay
-	- Overlay UI untuk kondisi pause.	
+- **GameWindow**
+  - Membungkus `JFrame`
+  - Mengatur ukuran, judul, dan operasi penutupan window
+  - Menambahkan `GamePanel` ke dalam window
 
-- Package utils
--- Constants
-	- Menyimpan nilai konstanta statis.
-	- Berisi ukuran tile, status pemain, dan parameter game lainnya.
--- HelpMethods
-	- Kumpulan metode bantu.
-	- Digunakan untuk collision detection dan perhitungan umum.
--- TMXLoader
-	- Memuat map TMX (Tiled Map Editor).
-	- Menangani parsing tileset dan data tile.
--- LoadSave
-	- Memuat gambar dan resource dari penyimpanan
-	- Memusatkan logika pemuatan aset.
-	- Menyimpan save data dari player
+- **Gamestate (Enum)**
+  - Mendefinisikan state permainan (MENU, PLAYING, PAUSED, dll.)
+  - Mengontrol alur permainan dan input
 
+- **Menu**
+  - Menangani logika dan tampilan menu utama
+  - Memproses input pengguna
 
+- **PauseOverlay**
+  - Menampilkan UI saat game dijeda
+  - Menangani interaksi ketika pause
 
-2. Konsep OOP yang Digunakan
-a. Enkapsulasi (Encapsulation)
-	- Data seperti posisi, health, animasi, dan hitbox disembunyikan di dalam kelas.
-	- Akses dilakukan melalui metode yang terkontrol.
-	- Contoh: Player mengelola pergerakan dan animasinya sendiri.
+---
 
-b. Pewarisan (Inheritance)
-- Entity berfungsi sebagai kelas induk.
-- Player dan Enemy mewarisi Entity.
-- Skeleton dan KnightBoss mewarisi Enemy.
-- Mengurangi duplikasi kode dan membentuk hierarki yang jelas.
+### Package `inputs`
 
-c. Polimorfisme (Polymorphism)
-- Semua musuh diperlakukan sebagai Enemy.
-- Setiap musuh dapat memiliki perilaku berbeda melalui override method.
-- EnemyManager tidak perlu mengetahui detail implementasi tiap musuh.
+- **KeyboardInputs**
+  - Menangani event input keyboard
+  - Menerjemahkan input menjadi aksi dalam game
 
-d. Abstraksi (Abstraction)
-- Logika tingkat tinggi tidak bergantung pada detail implementasi.
-- Sistem kompleks seperti collision dan TMX loading disembunyikan dalam kelas utilitas.
+- **MouseInput**
+  - Menangani klik dan pergerakan mouse
+  - Digunakan untuk navigasi UI
 
+---
 
-Separation of Concerns (Tambahan Info)
-- Logika game, rendering, input, dan loading data dipisahkan ke package berbeda.
-- Mempermudah pemeliharaan dan pengembangan.
+### Package `entities`
 
-Penggunaan Enum
-- Gamestate memastikan state game valid dan konsisten.
-- Menghindari penggunaan string untuk pengaturan state.
+- **Entity** (kelas dasar)
+  - Merepresentasikan semua karakter yang dapat bergerak
+  - Menyimpan posisi, hitbox, health, dan logika pergerakan
+
+- **Player**
+  - Turunan dari `Entity`
+  - Menangani pergerakan, animasi, dan pertarungan pemain
+
+- **Enemy**
+  - Turunan dari `Entity`
+  - Kelas dasar semua musuh
+  - Menyediakan logika umum AI dan damage
+
+- **Skeleton**
+  - Turunan dari `Enemy`
+  - Musuh dengan perilaku dan animasi khusus
+
+- **KnightBoss**
+  - Turunan dari `Enemy`
+  - Musuh boss dengan pola serangan khusus
+
+- **EnemyManager**
+  - Mengelola semua musuh dalam level
+  - Update, render, spawn, dan penghapusan musuh
+
+---
+
+### Package `levels`
+
+- **Level**
+  - Merepresentasikan satu level permainan
+  - Menyimpan data tile, musuh, dan objek
+
+- **LevelManager**
+  - Memuat level dari file TMX
+  - Mengelola level aktif
+  - Menyediakan data collision dan render
+
+---
+
+### Package `objects`
+
+- **ObjectManager**
+  - Mengelola objek interaktif (item, jebakan, dll.)
+  - Update dan render objek
+  - Menangani interaksi dengan player
+
+---
+
+### Package `ui`
+
+- **CreditsOverlay**
+  - Menampilkan kredit aset dan pengembang
+
+- **DialogueOverlay**
+  - Menampilkan dialog di layar
+  - Digunakan untuk cerita dan interaksi NPC
+
+- **GameOverOverlay**
+  - Menampilkan layar game over
+  - Menangani restart atau keluar
+
+- **Menu**
+  - Menangani tampilan dan navigasi menu UI
+
+- **PauseOverlay**
+  - Overlay UI saat game dijeda
+
+---
+
+### Package `utils`
+
+- **Constants**
+  - Menyimpan nilai konstanta statis
+  - Ukuran tile, status player, dan parameter game
+
+- **HelpMethods**
+  - Kumpulan metode bantu
+  - Digunakan untuk collision detection dan perhitungan umum
+
+- **TMXLoader**
+  - Memuat map TMX (Tiled Map Editor)
+  - Parsing tileset dan data tile
+
+- **LoadSave**
+  - Memuat resource dari penyimpanan
+  - Menyimpan dan memuat data save game
+  - Menyimpan health player dan checkpoint
+
+---
+
+## Konsep OOP yang Digunakan
+
+### Enkapsulasi (Encapsulation)
+- Data seperti posisi, health, animasi, dan hitbox disembunyikan dalam kelas
+- Akses dilakukan melalui metode yang terkontrol
+- Contoh: `Player` mengelola pergerakan dan animasinya sendiri
+
+### Pewarisan (Inheritance)
+- `Entity` sebagai kelas induk
+- `Player` dan `Enemy` mewarisi `Entity`
+- `Skeleton` dan `KnightBoss` mewarisi `Enemy`
+
+### Polimorfisme (Polymorphism)
+- Semua musuh diperlakukan sebagai `Enemy`
+- Perilaku berbeda diimplementasikan melalui method override
+- `EnemyManager` tidak bergantung pada detail tiap musuh
+
+### Abstraksi (Abstraction)
+- Logika tingkat tinggi tidak bergantung pada detail implementasi
+- Sistem kompleks seperti collision dan TMX loading disembunyikan dalam kelas utilitas
+
+### Separation of Concerns
+- Logika game, rendering, input, dan loading data dipisahkan ke package berbeda
+- Mempermudah pemeliharaan dan pengembangan
+
+### Penggunaan Enum
+- `Gamestate` memastikan state game valid dan konsisten
+- Menghindari penggunaan string untuk pengaturan state
